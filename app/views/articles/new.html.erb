@@ -1,0 +1,22 @@
+<div class="container">
+    <h1 class="text-center">ブログの新規作成</h1>
+    <div class= "col-md-12 margin-padding bg-white">
+        <%=image_tag 'dog-1.jpeg', class: 'article-image padding-top-15' %>
+        <div class="padding-bottom-15 ">
+            <%= form_for @article do |f|%>
+                <div class="padding-top-30">
+                    <%= f.file_field :image %>
+                </div>
+                <div class="form-group padding-top-15">
+                    <%= f.label :title, 'タイトル' %>
+                    <%= f.text_field :title, class: 'form-control'%>
+                </div>
+                <div class="form-group">
+                    <%= f.label :body, '本文' %>
+                    <%= f.text_area :body, rows:10 ,class: 'form-control'%>
+                </div>
+                <%= f.submit class: 'btn btn-success'%>
+            <%end%>
+        </div>
+    </div>
+</div>

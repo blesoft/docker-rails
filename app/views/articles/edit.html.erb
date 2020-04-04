@@ -1,0 +1,11 @@
+<div class="container">
+    <h1 class="text-center">ブログの編集</h1>
+    <div class= "col-md-12 margin-padding bg-white">
+        <% if @article.image.attached? %>
+            <%= image_tag @article.image, class: 'article-image padding-top-15' %>
+        <% end %>
+        <div class="padding-bottom-15 ">
+            <%= render 'form', article: @article %>
+        </div>
+    </div>
+</div>

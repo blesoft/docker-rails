@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+        <h1 class="text-center brog"><%= current_user.profile.name %>　の　ブログ</h1>
+        <% @articles.each do |article| %>
+            <%=link_to article do %>
+                <div class= "col-md-12 margin-padding bg-white">
+                    <% if article.image.attached? %>
+                        <%= image_tag article.image, class: 'article-image padding-top-15' %>
+                    <% end %>
+    
+                    <div>
+                        <p class= "title"><%=article.title %></p>
+                        <span>
+                            <%=article.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
+                        </span>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+    <div class="row margin-top-5per btn btn-primary ">
+    <%=link_to '新規作成', new_article_path,class: 'color-white' %>
+    </div>
+</div>

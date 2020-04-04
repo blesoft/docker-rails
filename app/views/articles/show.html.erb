@@ -1,0 +1,18 @@
+<div class="container">
+    <div class= "col-md-12 margin-padding bg-white">
+        <% if @article.image.attached? %>
+            <%= image_tag @article.image, class: 'article-image padding-top-15' %>
+        <% end %>
+        <h1 class="text-center"><%= @article.title %></h1>
+        <div>
+            <p class="text"><%= @article.body%></p>
+            <span>
+                <div class="text-right">
+                    <%=@article.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
+                </div>
+            </span>
+        </div>
+        <%= link_to '編集', edit_article_path(@article),class: 'btn btn-primary',style: 'margin-right: 10px' %>
+        <%= link_to '削除する', article_path(@article), method: :delete , data: {confirm: 'この記事を削除してもよろしいですか？'} ,class: 'btn btn-danger' %>
+    </div>
+</div>
